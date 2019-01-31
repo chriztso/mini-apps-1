@@ -1,3 +1,5 @@
+
+
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -40,12 +42,23 @@ class App extends React.Component{
   }
   
   purchaseClicked(){
+    $.post({
+      url: '/customers',
+      type: 'POST', 
+      contentType: 'application/json',
+      data: JSON.stringify(this.state.information),
+      success: (data) => (console.log(data)),
+      err: (err) => console.log(err) 
+    });
+    
     this.state.customerData.push(this.state.information);
     this.setState({information : {}});
     console.log(this.state.customerData);
     console.log(this.state.information);
+    
     this.setState({originalPageRender: true,
       formThreeRender: false});
+
   }
   
   changeName(){
