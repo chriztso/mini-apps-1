@@ -24,6 +24,45 @@ class App extends React.Component {
      }
    }
   }
+
+  var board = [[1,2,1,1], [0,0, 0, 0],[0,0,0,0], [0,0,0,0]];
+
+
+    // function checkColumns(column){
+    //    var count = 0; 
+    //    for(var i = board.length-1; i >= 0; i--){
+         
+    //      if(board[i][column] === 1){
+    //        count++;
+    //      if(count === 4){
+    //       return true;
+    //      }       
+    //      }
+
+    //      if(board[i][column] === 2){
+    //      count = 0;
+    //      }
+    //    }
+    //    return false;
+    // }
+
+
+    // function checkRows(row){
+    //  var count = 0;
+    //  for(var i = 0; i < board[row].length; i++){
+    //   if(board[row][i] === 1){
+    //       count++;
+    //       if(count === 4){
+    //           return true;
+    //       }
+    //   }
+    //   if(board[row][i] === 2){
+    //       count = 0;
+    //   }
+    //  }
+    //  return false;
+    // }
+
   render(){
     if(this.state.columnOne[this.state.columnOne.length-5]){
     var style5 = {backgroundColor : 'red'};
