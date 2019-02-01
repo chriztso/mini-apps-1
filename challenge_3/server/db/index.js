@@ -1,3 +1,5 @@
+//database index
+
 var mysql = require('mysql');
 
 // Create a database connection and export it from this file.
@@ -5,11 +7,11 @@ var mysql = require('mysql');
 // and to the database "chat".
 var db = mysql.createConnection({
   host: 'localhost',
-  user: 'student',
-  password: 'student',
+  user: 'root',
+  password: 'yourpassword',
   database: 'customers'
 });
   
 db.connect();
 
-module.exports.db = db; 
+module.exports= db; 

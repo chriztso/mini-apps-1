@@ -2,30 +2,15 @@ var express = require('express');
 var app = express();
 var getInfo = require('./server/models/index.js').getInfo;
 var addInfo = require('./server/models/index.js').addInfo;
-
+var bodyParser = require("body-parser");
+var controller = require('./server/controllers/index.js');
 const PORT = 3000; 
 
-
+app.use(bodyParser.json());
 app.use(express.static('public'));
-app.get('/customers', function (req, res) {
-  getInfo((err, rows) => {
-    if(err){
-      res.status(400).send();
-      return;
-    }
-    res.status(200).send(rows);
-  })
-});
+app.get('/customers', controller.get);
 
-app.post('/customers', function (req, res) {
-  addInfo(req.body, (err) => {
-    if(err){
-      res.status.send();
-      return;
-    }
-    res.sendStatus(201);
-  })
-});
+app.post('/customers', controller.post);
 
 app.listen(PORT, () => {console.log('LISTENING NOW')});
 

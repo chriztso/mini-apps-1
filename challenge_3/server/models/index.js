@@ -1,4 +1,4 @@
-var db = require('../models/index.js');
+var db = require('../db/index.js');
 
   var getInfo = function (callback){
     db.query('SELECT * FROM customers', function(err, results){
@@ -6,19 +6,19 @@ var db = require('../models/index.js');
         throw err; 
         return;
       }
-      callback(null, result);
+      callback(null, results);
     })
   }
   
   var addInfo = function (newItem, callback){
-    var sql = `INSERT INTO customers (name, email, password, address, phonenumber, creditcard, expiration) 
-    VALUES ('${newItem.name}', '${newItem.email}', '${newItem.password}', '${newItem.address}', '${newItem.phonenumber}', '${newItem.creditcard}', 
-            '${newItem.expiration}')`; 
-    db.query(sql , function(err){
+    console.log('here it is', newItem); 
+    
+    db.query('INSERT INTO customers SET ?', newItem, function(err, data){
       if(err){
         throw err;
         return;
       }
+      callback(null, data);
   })
 }
 module.exports.getInfo = getInfo;

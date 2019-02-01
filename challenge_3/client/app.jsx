@@ -50,6 +50,15 @@ class App extends React.Component{
       success: (data) => (console.log(data)),
       err: (err) => console.log(err) 
     });
+   
+   $.get({
+      url: '/customers',
+      type: 'GET', 
+      contentType: 'application/json',
+      success: (data) => (console.log(data)),
+      err: (err) => console.log(err) 
+    });
+    
     
     this.state.customerData.push(this.state.information);
     this.setState({information : {}});
