@@ -1,0 +1,15 @@
+.circle{
+border-radius: 100px;
+height: 100px;
+width: 100px;
+border: 1px solid black;
+color: green;
+}
+
+.square{
+border: 1px solid black;
+height: 100px;
+width: 100px;
+background-color: yellow;
+}
+
